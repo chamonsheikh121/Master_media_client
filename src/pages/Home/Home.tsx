@@ -1,5 +1,4 @@
 import Banner from "./Banner";
-import Footer from "./Footer";
 import HowToPay from "./HowToPay";
 import MeetOurTeam from "./MeetOurTeam";
 import PopularPackages from "./PopularPackages";

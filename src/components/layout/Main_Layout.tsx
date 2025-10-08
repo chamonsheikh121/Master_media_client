@@ -12,8 +12,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
-import { ModeToggle } from "./../ui/ModeToggle";
+import ModeToggle from "../ui/ModeToggle";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
