@@ -1,6 +1,8 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+  import logo from "../../assets/logo.png";import AOS from "aos";
+  import "aos/dist/aos.css"; // You need the CSS
+  import { useEffect } from "react";
 
 export default function Footer() {
   const menuItems = [
@@ -12,11 +14,19 @@ export default function Footer() {
     { title: "কল করুন", href: "tel:+880130934230" },
   ];
 
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // whether animation should happen only once
+      });
+    }, []);
+
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 pt-16 pb-10 mt-16">
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {/* Column 1 - Logo & About */}
-        <div className="flex flex-col items-start">
+        <div data-aos="fade-up" className="flex flex-col items-start">
           <img src={logo} alt="Master Media Logo" className="w-36 h-auto mb-4" />
           <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
            মাস্টার মিডিয়া একটি উদীয়মান ও নির্ভরযোগ্য ইন্টারনেট সার্ভিস প্রোভাইডার, যার লক্ষ্য গ্রামীণ অঞ্চলের মানুষদের জন্য দ্রুতগতি, স্থিতিশীল ও সাশ্রয়ী ইন্টারনেট নিশ্চিত করা। 
@@ -26,12 +36,12 @@ export default function Footer() {
 
         {/* Column 2 - Menu Links */}
         <div>
-          <h3 className="text-lg text-start font-semibold text-gray-800 dark:text-white mb-4">
+          <h3 data-aos="fade-up" className="text-lg text-start font-semibold text-gray-800 dark:text-white mb-4">
             গুরুত্বপূর্ণ লিংক
           </h3>
           <ul className="space-y-2 text-gray-600 flex flex-col justify-start items-start dark:text-gray-300 text-sm">
             {menuItems.map((item, idx) => (
-              <li key={idx}>
+              <li data-aos="fade-up" key={idx}>
                 {item.href.startsWith("tel:") ? (
                   <a href={item.href} className="hover:text-green-600 transition">
                     📞 {item.title}
@@ -47,7 +57,7 @@ export default function Footer() {
         </div>
 
         {/* Column 3 - Contact Info */}
-        <div className="flex flex-col justify-start items-start">
+        <div data-aos="fade-up" className="flex flex-col justify-start items-start">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
             যোগাযোগের ঠিকানা
           </h3>

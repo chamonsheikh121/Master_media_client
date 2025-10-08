@@ -38,7 +38,9 @@ import img37 from "../../assets/Gallery/37.webp";
 import img38 from "../../assets/Gallery/38.webp";
 import img39 from "../../assets/Gallery/39.webp";
 import img40 from "../../assets/Gallery/40.webp";
-
+import AOS from "aos";
+import "aos/dist/aos.css"; // You need the CSS
+import { useEffect } from "react";
 const images = [
 
   img2,
@@ -83,6 +85,13 @@ const images = [
 ];
 
 export default function Gallery() {
+     useEffect(() => {
+          AOS.init({
+            duration: 5000, // animation duration in ms
+            easing: "ease-in-out", // easing function
+            once: true, // whether animation should happen only once
+          });
+        }, []);
   return (
     <div className="w-[90%] max-w-6xl mx-auto py-16">
       {/* Heading */}
@@ -91,13 +100,15 @@ export default function Gallery() {
       </h1>
 
       {/* Image grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div  data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((img, index) => (
           <div
+         data-aos="fade-up"
             key={index}
             className="w-full flex justify-center items-center overflow-hidden rounded-lg"
           >
             <img
+             data-aos="fade-up"
               src={img}
               alt={`Gallery ${index + 1}`}
               className="w-full h-auto object-contain"

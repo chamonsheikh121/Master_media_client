@@ -1,5 +1,9 @@
 "use client";
 import { toast } from "sonner";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You need the CSS
+import { useEffect } from "react";
+
 import img1 from "../../assets/payments/b1.jpg";
 import img2 from "../../assets/payments/b2.jpg";
 import img3 from "../../assets/payments/b3.jpg";
@@ -66,6 +70,14 @@ const HowToPay = () => {
     },
   ];
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // whether animation should happen only once
+    });
+  }, []);
+
   return (
     <section className="py-16 px-4 md:px-16">
       <div className="text-center mb-12">
@@ -80,6 +92,7 @@ const HowToPay = () => {
       <div className="grid  gap-8 md:grid-cols-2 lg:grid-cols-3">
         {paymentSteps.map((step, index) => (
           <div
+            data-aos="flip-left"
             key={index}
             className="relative flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md shadow-gray-400/30 hover:shadow-lg transition-shadow duration-300"
           >
@@ -94,7 +107,9 @@ const HowToPay = () => {
             <p className="text-gray-700 dark:text-gray-300 text-center">
               {step.description}
             </p>
-            <span className="absolute top-0 right-0 bg-green-700 rounded-full p-5 flex justify-center items-center text-white w-10 h-10">{index+1}</span>
+            <span className="absolute top-0 right-0 bg-green-700 rounded-full p-5 flex justify-center items-center text-white w-10 h-10">
+              {index + 1}
+            </span>
           </div>
         ))}
       </div>

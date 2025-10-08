@@ -1,5 +1,4 @@
 
-import { useEffect } from 'react';
 import img1 from '../../assets/team/1.-Tofazzal-Hossain.webp';
 import img2 from '../../assets/team/2.-Imran-Chowdhury.webp';
 import img3 from '../../assets/team/3.-Hussain-Mohammad-Tarek.webp';
@@ -8,6 +7,9 @@ import img5 from '../../assets/team/5.-Nazmus-Samir-Turin.webp';
 import img6 from '../../assets/team/6.-Raihan-Chowdhury.webp';
 import img7 from '../../assets/team/7.-Moddasir-Ahmed.webp';
 import img8 from '../../assets/team/8.-Pavel-Hossain.webp';
+import AOS from "aos";
+import "aos/dist/aos.css"; // You need the CSS
+import { useEffect } from "react";
 
 const team = [
   {
@@ -46,30 +48,36 @@ const team = [
 
 export default function AboutUs() {
 
-
+    useEffect(() => {
+      AOS.init({
+        duration: 5000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // whether animation should happen only once
+      });
+    }, []);
   return (
     <div className="w-[90%] max-w-5xl mx-auto py-16">
       {/* Heading */}
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">
+      <h1  data-aos="fade-up" className="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">
         আমাদের সম্পর্কে
       </h1>
 
       {/* Intro paragraph */}
       <section className="mb-10 text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-        <p>
+        <p  data-aos="fade-up">
           মাস্টার মিডিয়া একটি উদীয়মান ও নির্ভরযোগ্য ইন্টারনেট সার্ভিস প্রোভাইডার (ISP), যার যাত্রা শুরু হয় ২০২৩ সালে ব্রাহ্মণবাড়িয়া জেলার সরাইল থানার শাহবাজপুর গ্রামে। স্বল্প সময়ে গ্রাহকদের আস্থা ও ভালোবাসা অর্জনের মাধ্যমে মাস্টার মিডিয়া এখন শাহবাজপুর ছাড়াও আশপাশের এলাকায়—বিশেষ করে দেওড়া গ্রামেও—উচ্চমানের ইন্টারনেট সেবা পৌঁছে দিচ্ছে।
         </p>
-        <p>
+        <p  data-aos="fade-up">
           আমাদের লক্ষ্য হলো গ্রামীণ অঞ্চলের মানুষদের জন্য দ্রুতগতি সম্পন্ন, স্থিতিশীল এবং সাশ্রয়ী ইন্টারনেট সেবা নিশ্চিত করা। প্রযুক্তিনির্ভর এই যুগে শিক্ষা, ব্যবসা ও যোগাযোগে পিছিয়ে না পড়ার জন্য আমরা নিরলসভাবে কাজ করে যাচ্ছি। মাস্টার মিডিয়া বিশ্বাস করে—উন্নত ও সংযুক্ত একটি সমাজ গড়তে হলে, প্রথমেই দরকার একটি শক্তিশালী ইন্টারনেট অবকাঠামো।
         </p>
-        <p>
+        <p  data-aos="fade-up">
           শুধু ইন্টারনেট সংযোগ নয়, মাস্টার মিডিয়া একটি কমিউনিটি গড়ার লক্ষ্য নিয়ে কাজ করছে—যেখানে সবাই থাকবে সংযুক্ত, তথ্যপ্রবাহ থাকবে উন্মুক্ত, আর প্রযুক্তি হবে সবার নাগালে। আপনার আস্থা আমাদের অনুপ্রেরণা। আমরা আছি আপনার পাশে—আপনার সংযোগ, আপনার গর্ব।
         </p>
       </section>
 
       {/* Mission */}
-      <section className="mb-10 bg-gray-100 dark:bg-gray-800 rounded-xl p-6">
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+      <section data-aos="fade-up" className="mb-10 bg-gray-100 dark:bg-gray-800 rounded-xl p-6">
+        <h2  className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
           🎯 আমাদের মিশন
         </h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -78,8 +86,8 @@ export default function AboutUs() {
       </section>
 
       {/* Vision */}
-      <section className="mb-10 bg-gray-100 dark:bg-gray-800 rounded-xl p-6">
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+      <section  data-aos="fade-up" className="mb-10 bg-gray-100 dark:bg-gray-800 rounded-xl p-6">
+        <h2  className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
           🌟 আমাদের ভিশন
         </h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -88,7 +96,7 @@ export default function AboutUs() {
       </section>
        <section className=" mx-auto py-32">
       {/* Heading */}
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-20 text-gray-800 dark:text-white">
+      <h2 data-aos="fade-up" className="text-2xl md:text-3xl font-bold text-center mb-20 text-gray-800 dark:text-white">
         আমাদের টিমের সদস্যদের সাথে পরিচিত হোন
       </h2>
 
@@ -97,8 +105,11 @@ export default function AboutUs() {
         {/* 🔹 Show team cards on lg & md */}
         {team.map((member, index) => (
           <div
+           data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000"
             key={index}
-            className=" p-4 shadow-md hover:shadow-2xl  md:flex flex-col items-center  rounded-2xl  transition-all duration-300 border border-gray-100 dark:border-gray-700 w-full "
+            className=" p-4 shadow-md hover:shadow-2xl  md:flex flex-col items-center  rounded-2xl  transition-all duration-300  w-full "
           >
             <img
               src={member.image}

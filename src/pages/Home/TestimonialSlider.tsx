@@ -2,6 +2,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaQuoteLeft } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You need the CSS
+import { useEffect } from "react";
 
 const reviews = [
   {
@@ -80,10 +83,18 @@ export default function TestimonialCarousel() {
     ],
   };
 
+useEffect(() => {
+    AOS.init({
+      duration: 5000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // whether animation should happen only once
+    });
+  }, []);
+
   return (
    <div className="my-20">
     <div>
-       <h2 className="text-2xl mb-32 md:text-3xl font-bold text-center ">
+       <h2  data-aos="fade-up" className="text-2xl mb-32 md:text-3xl font-bold text-center ">
         আমাদের সম্মানিত গ্রাহকদের মতামত
       </h2>
     </div>
@@ -91,7 +102,7 @@ export default function TestimonialCarousel() {
       <Slider {...settings}>
         {reviews?.length > 0 &&
           reviews.map((review) => (
-            <div style={{ width: "calc(90% - 24px)", margin: "auto" }} className="rounded-2xl mx-3 h-[300px] p-5  border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 flex flex-col shadow-lg justify-between">
+            <div data-aos="zoom-in" style={{ width: "calc(90% - 24px)", margin: "auto" }} className="rounded-2xl mx-3 h-[300px] p-5  border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 flex flex-col shadow-lg justify-between">
               <div className="flex flex-col items-center gap-4 mb-3">
                 <img
                   src={review?.profilePic}

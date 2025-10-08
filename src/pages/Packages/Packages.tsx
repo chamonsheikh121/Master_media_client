@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css"; // You need the CSS
+import { useEffect } from "react";
 const categories = ["All", "Basic", "Standard", "Premium"];
 
 const packages = [
@@ -54,13 +56,19 @@ export default function OurPackagesPage() {
     activeTab === "All"
       ? packages
       : packages.filter((pkg) => pkg.category === activeTab);
-
+  useEffect(() => {
+    AOS.init({
+      duration: 5000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // whether animation should happen only once
+    });
+  }, []);
   return (
     <div className="w-[90%] max-w-6xl mx-auto py-16">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800 dark:text-white">
+      <h1 data-aos="fade-up"  className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800 dark:text-white">
         আমাদের প্যাকেজসমূহ
       </h1>
-      <p className="text-center text-gray-600 dark:text-gray-300 mb-10">
+      <p data-aos="fade-up"  className="text-center text-gray-600 dark:text-gray-300 mb-10">
         আপনার প্রয়োজন অনুযায়ী প্যাকেজ বেছে নিন এবং যোগাযোগ করুন
       </p>
 
@@ -68,6 +76,7 @@ export default function OurPackagesPage() {
       <div className="flex justify-center gap-4 mb-10 flex-wrap">
         {categories.map((cat) => (
           <button
+          data-aos="fade-up" 
             key={cat}
             onClick={() => setActiveTab(cat)}
             className={`px-5 py-2 cursor-pointer rounded-full font-medium transition ${
@@ -85,6 +94,7 @@ export default function OurPackagesPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredPackages.map((pkg) => (
           <div
+          data-aos="fade-up" 
             key={pkg.id}
             className="p-6 rounded-xl shadow-lg bg-gradient-to-br from-green-100 via-green-200 to-green-300 dark:from-green-700 dark:via-green-800 dark:to-green-900 hover:scale-105 transition-transform"
           >

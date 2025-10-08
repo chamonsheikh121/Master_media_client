@@ -1,7 +1,9 @@
 "use client";
 
 import { FaWifi, FaGlobe, FaRocket } from "react-icons/fa";
-
+import AOS from "aos";
+import "aos/dist/aos.css"; // You need the CSS
+import { useEffect } from "react";
 const packages = [
   {
     title: "Basic Package",
@@ -24,9 +26,17 @@ const packages = [
 ];
 
 const PopularPackages = () => {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 5000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // whether animation should happen only once
+      });
+    }, []);
   return (
     <section className="py-16 px-4 md:px-16 shadow-md shadow-gray-400/30 rounded-md">
-      <div className="text-center mb-12">
+      <div data-aos="fade-up"  className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
           জনপ্রিয় প্যাকেজসমূহ
         </h2>
@@ -38,6 +48,7 @@ const PopularPackages = () => {
       <div className="grid gap-8 md:grid-cols-3">
         {packages.map((pkg, index) => (
           <div
+          data-aos="fade-up" 
             key={index}
             className="bg-gradient-to-r from-pink-400 via-red-500 to-yellow-400 p-1 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500"
           >
@@ -63,7 +74,7 @@ const PopularPackages = () => {
         ))}
       </div>
 
-      <button className="mt-10 bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 cursor-pointer transition-colors duration-300">
+      <button data-aos="fade-up"  className="mt-10 bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 cursor-pointer transition-colors duration-300">
         আরও দেখুন
       </button>
     </section>

@@ -4,7 +4,9 @@ import im1 from '../../assets/team/1.-Tofazzal-Hossain.webp'
 import img2 from '../../assets/team/2.-Imran-Chowdhury.webp'
 import img3 from '../../assets/team/3.-Hussain-Mohammad-Tarek.webp'
 import img4 from '../../assets/team/4.-Md.-Razibul-Haque-Chowdhury.webp'
-
+import AOS from "aos";
+import "aos/dist/aos.css"; // You need the CSS
+import { useEffect } from "react";
 
 export default function MeetOurTeam() {
   const team = [
@@ -22,12 +24,18 @@ export default function MeetOurTeam() {
     },
   ];
 
-
+useEffect(() => {
+    AOS.init({
+      duration: 5000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // whether animation should happen only once
+    });
+  }, []);
 
   return (
     <section className=" mx-auto pt-32 pb-10">
       {/* Heading */}
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-20 text-gray-800 dark:text-white">
+      <h2 data-aos="fade-up" className="text-2xl md:text-3xl font-bold text-center mb-20 text-gray-800 dark:text-white">
         আমাদের টিমের সদস্যদের সাথে পরিচিত হোন
       </h2>
 
@@ -36,6 +44,9 @@ export default function MeetOurTeam() {
         {/* 🔹 Show team cards on lg & md */}
         {team.map((member, index) => (
           <div
+       data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000"
             key={index}
             className="hidden shadow-xl relative h-72 md:flex flex-col items-center hover:shadow-2xl rounded-2xl  transition-all duration-300 border border-gray-100 dark:border-gray-700 w-full "
           >
