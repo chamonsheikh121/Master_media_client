@@ -3,17 +3,17 @@
 import { FaCheckCircle } from "react-icons/fa";
 
 const features = [
-  "Fastest Internet Speeds",
-  "Reliable & Secure",
-  "Experienced Team",
-  "24/7 Customer Support",
-  "Affordable Packages",
-  "Wide Coverage Area",
-  "Easy Installation",
-  "Flexible Plans",
-  "High-Quality Equipment",
-  "Seamless Streaming & Gaming",
-  "Dedicated Customer Care",
+  "দ্রুততম ইন্টারনেট স্পিড",
+  "নির্ভরযোগ্য ও সুরক্ষিত",
+  "অভিজ্ঞ টিম",
+  "২৪/৭ কাস্টমার সাপোর্ট",
+  "সাশ্রয়ী প্যাকেজসমূহ",
+  "বিস্তৃত কভারেজ এলাকা",
+  "সহজ ইন্সটলেশন",
+  "লচিল প্ল্যানসমূহ",
+  "উচ্চমানের সরঞ্জাম",
+  "সিমলেস স্ট্রিমিং ও গেমিং",
+  "নিয়মিত কাস্টমার কেয়ার",
 ];
 
 const WhyChoose = () => {
@@ -21,10 +21,10 @@ const WhyChoose = () => {
     <section className="py-16 px-4 md:px-16">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-          Why Choose Master Media?
+          কেন মাস্টার মিডিয়া বেছে নেবেন?
         </h2>
         <p className="mt-2 text-gray-600 dark:text-gray-300">
-          Experience the best internet services with speed, reliability, and support you can trust.
+          সর্বোত্তম ইন্টারনেট সেবা উপভোগ করুন দ্রুততা, নির্ভরযোগ্যতা এবং বিশ্বাসযোগ্য সহায়তার সঙ্গে।
         </p>
       </div>
 

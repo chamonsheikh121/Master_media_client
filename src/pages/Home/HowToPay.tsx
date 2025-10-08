@@ -15,14 +15,14 @@ const HowToPay = () => {
   const paymentSteps = [
     {
       id: 1,
-      title: "ধাপ ১: 'Make Payment' অপশনটি সিলেক্ট করুন",
+      title: " 'Make Payment' অপশনটি সিলেক্ট করুন",
       description:
         "প্রথমে বিকাশ অ্যাপে লগইন করে 'Make Payment' অপশনটি নির্বাচন করুন।",
       imgSrc: img1,
     },
     {
       id: 2,
-      title: "ধাপ ২: আমাদের বিকাশ নম্বরটি দিন",
+      title: " আমাদের বিকাশ নম্বরটি দিন",
       description: (
         <>
           "বিকাশ নাম্বার{" "}
@@ -30,18 +30,18 @@ const HowToPay = () => {
             <b>01745981072</b>
           </span>{" "}
           লিখে 'Confirm Payment' বাটনে ট্যাপ করুন।"
-          <p>
+          <span>
             <Button onClick={handleCopy} className="mt-2 cursor-pointer">
               Copy
             </Button>
-          </p>
+          </span>
         </>
       ),
       imgSrc: img2,
     },
     {
       id: 3,
-      title: "ধাপ ৩: নাম যাচাই ও পরিমাণ দিন",
+      title: " নাম যাচাই ও পরিমাণ দিন",
       description: (
         <>
           "নিশ্চিত করুন নামটি <b>MASTER MEDIA</b> দেখাচ্ছে। এরপর আপনার বিলের
@@ -52,14 +52,14 @@ const HowToPay = () => {
     },
     {
       id: 4,
-      title: "ধাপ ৪: আপনার সাবস্ক্রাইবার আইডি দিন",
+      title: " আপনার সাবস্ক্রাইবার আইডি দিন",
       description:
         "‘Reference’ বক্সে আপনার ইউজার আইডি লিখুন, যাতে আমরা সহজে আপনার পেমেন্ট শনাক্ত করতে পারি।",
       imgSrc: img4,
     },
     {
       id: 5,
-      title: "ধাপ ৫: পেমেন্ট সম্পন্ন করুন",
+      title: " পেমেন্ট সম্পন্ন করুন",
       description:
         "'Tap and hold to Make Payment' বাটনে চাপ দিয়ে রাখুন যতক্ষণ না পেমেন্ট সফল হয়।",
       imgSrc: img5,
@@ -73,15 +73,15 @@ const HowToPay = () => {
           কীভাবে আপনার ওয়াই-ফাই বিল পরিশোধ করবেন
         </h2>
         <p className="mt-2 text-gray-600 dark:text-gray-300">
-          নিচের সহজ ধাপগুলো অনুসরণ করে দ্রুত ও নিরাপদে আপনার বিল পরিশোধ করুন।
+          নিচের সহজ করে দ্রুত ও নিরাপদে আপনার বিল পরিশোধ করুন।
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {paymentSteps.map((step) => (
+      <div className="grid  gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {paymentSteps.map((step, index) => (
           <div
-            key={step.id}
-            className="flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md shadow-gray-400/30 hover:shadow-lg transition-shadow duration-300"
+            key={index}
+            className="relative flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md shadow-gray-400/30 hover:shadow-lg transition-shadow duration-300"
           >
             <img
               src={step.imgSrc}
@@ -94,6 +94,7 @@ const HowToPay = () => {
             <p className="text-gray-700 dark:text-gray-300 text-center">
               {step.description}
             </p>
+            <span className="absolute top-0 right-0 bg-green-700 rounded-full p-5 flex justify-center items-center text-white w-10 h-10">{index+1}</span>
           </div>
         ))}
       </div>
